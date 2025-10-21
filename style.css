@@ -1,245 +1,200 @@
-/* Reset */
+/* Reset some basics */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
-/* Fonts and body */
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: url('background1.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #f0f0f0;
-  min-height: 100vh;
-  overflow-x: hidden;
+body, html {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #eee;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
-/* Hero Section - Full screen background with name */
-.hero {
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.55);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+#intro {
+  position: relative;
   text-align: center;
-  padding: 0 1rem;
-}
-
-.hero h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 0.3rem;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-}
-
-.hero p {
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: 1.2px;
-  color: #ddd;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
-}
-
-/* Hamburger menu button - desktop hidden */
-#hamburger {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  font-size: 2.5rem;
-  background: rgba(0,0,0,0.6);
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #2b2b2b 0%, #121212 100%);
   color: #fff;
-  border: none;
-  cursor: pointer;
-  z-index: 1001;
-  display: none;
-  padding: 0.1rem 0.4rem;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
 }
 
-#hamburger:hover {
-  background-color: #0077ff;
+#intro h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.2em;
+}
+
+#intro p {
+  font-size: 1.1rem;
+  margin-top: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#menuBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  background: transparent;
+  border: none;
+  color: #eee;
+  cursor: pointer;
+  display: block;
 }
 
 /* Sidebar */
-.sidebar {
+#sidebar {
+  background-color: #1f1f1f;
   position: fixed;
   top: 0;
   left: 0;
-  width: 320px;
-  height: 100vh;
-  background-color: #111a2acc;
-  box-shadow: 3px 0 10px rgba(0,0,0,0.7);
-  padding: 2rem 1.5rem;
+  height: 100%;
+  width: 280px;
   overflow-y: auto;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.7);
   z-index: 1000;
-  transition: transform 0.3s ease;
 }
 
-.sidebar .profile {
+.sidebar-top {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 30px;
 }
 
-.sidebar .profile img {
-  width: 130px;
-  height: 130px;
+.sidebar-top img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
   object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #0077ff;
-  margin-bottom: 1rem;
-  box-shadow: 0 0 15px #0077ffbb;
+  margin-bottom: 12px;
 }
 
-.sidebar .profile h2 {
-  font-size: 1.7rem;
-  margin-bottom: 0.3rem;
+.sidebar-top h2 {
+  color: #ddd;
+  font-size: 1.4rem;
+  margin: 8px 0 0 0;
 }
 
-.sidebar .profile p {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #a0a8b9;
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
 }
 
-/* Menu list */
-.menu-list {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 2rem;
+.social-icons a svg {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.2s ease;
 }
 
-.menu-list li {
-  margin-bottom: 1.3rem;
+.social-icons a:hover svg,
+.social-icons a:focus svg {
+  transform: scale(1.2);
 }
 
-.menu-list a {
+#sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#sidebar nav a {
+  color: #ddd;
   text-decoration: none;
-  font-size: 1.1rem;
-  color: #eee;
   font-weight: 600;
-  display: block;
-  transition: color 0.3s ease;
-}
-
-.menu-list a:hover {
-  color: #0077ff;
-}
-
-/* Download Resume Button */
-.download-button {
-  display: inline-block;
-  background-color: #0077ff;
-  color: white;
-  padding: 0.7rem 1.5rem;
   font-size: 1.1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  width: 100%;
-  box-sizing: border-box;
-  transition: background-color 0.25s ease;
-}
-
-.download-button:hover {
-  background-color: #005bb5;
-}
-
-/* Main content - shifted right to accommodate sidebar */
-main {
-  margin-left: 320px;
-  padding: 2rem 3rem;
-  background-color: #0f1625dd;
-  min-height: 100vh;
-  color: #eee;
-  overflow-wrap: break-word;
-}
-
-/* Content section styles */
-.content-section {
-  margin-bottom: 3.5rem;
-}
-
-.content-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #0077ff;
-  padding-bottom: 0.3rem;
-}
-
-.content-section h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 0.8rem;
-  font-weight: 700;
-  color: #a9d1ff;
-}
-
-.content-section ul {
-  list-style: disc inside;
-  margin-top: 0.5rem;
-  line-height: 1.4;
-}
-
-.content-section ul li {
-  margin-bottom: 0.5rem;
-}
-
-.content-section p {
-  margin-top: 0.8rem;
-  line-height: 1.5;
-  font-size: 1rem;
-}
-
-/* Scroll to top button */
-#scrollTopBtn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  display: none;
-  background-color: #0077ff;
-  color: white;
-  border: none;
-  padding: 0.7rem 1rem;
-  font-size: 1.2rem;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  z-index: 9999;
+  padding: 8px 12px;
+  border-radius: 6px;
   transition: background-color 0.3s ease;
 }
 
-#scrollTopBtn:hover {
-  background-color: #005bb5;
+#sidebar nav a:hover,
+#sidebar nav a:focus {
+  background-color: #333;
+  outline: none;
 }
 
-/* Responsive styles */
-@media screen and (max-width: 768px) {
-  #hamburger {
-    display: block;
+/* Main content */
+#content-wrapper {
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
+/* Resume buttons */
+.resume-buttons {
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.resume-buttons button {
+  background-color: #0a84ff;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.resume-buttons button:hover,
+.resume-buttons button:focus {
+  background-color: #006fdd;
+  outline: none;
+}
+
+/* Responsive behaviors */
+
+/* Mobile (below 768px) */
+@media (max-width: 767px) {
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
   }
 
-  .sidebar {
-    width: 260px;
-    height: 100vh;
+  #sidebar[hidden] {
+    display: block; /* to allow transform */
     transform: translateX(-100%);
   }
 
-  .sidebar.active {
+  #sidebar:not([hidden]) {
     transform: translateX(0);
   }
 
-  main {
-    margin-left: 0;
-    padding: 1.5rem 1.5rem;
+  #menuBtn {
+    display: block;
   }
 
-  .download-button {
-    width: auto;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
+  #content-wrapper {
+    margin-left: 0;
+  }
+}
+
+/* Desktop (768px and above) */
+@media (min-width: 768px) {
+  #sidebar {
+    position: fixed;
+    transform: translateX(0) !important;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 280px;
+    display: block !important;
+  }
+
+  #menuBtn {
+    display: none;
+  }
+
+  #content-wrapper {
+    margin-left: 280px;
   }
 }
