@@ -2,23 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prabhakar Reddy Chalamala - Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- HERO SECTION -->
+  <!-- Full-screen hero -->
   <div id="hero">
-    <h1>Prabhakar Reddy Chalamala</h1>
-    <p>Azure Data Engineer | PySpark | Azure Databricks | Data Factory | AI-Powered Development</p>
-    <button id="menuBtn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <div id="hero-text">
+      <h1>Prabhakar Reddy Chalamala</h1>
+      <p>Azure Data Engineer | PySpark | Azure Databricks | Data Factory | AI-Powered Development</p>
+      <button id="menuBtn" aria-label="Toggle menu">&#9776;</button>
+    </div>
   </div>
 
-  <!-- SIDEBAR -->
+  <!-- Sidebar -->
   <aside id="sidebar">
     <div class="sidebar-top">
-      <img src="Prabhakar.jpg" alt="Prabhakar Reddy Chalamala" />
+      <img src="Prabhakar.jpg" alt="Prabhakar Reddy Chalamala">
       <h2>Prabhakar Reddy Chalamala</h2>
     </div>
     <nav>
@@ -34,13 +36,16 @@
     </nav>
   </aside>
 
-  <!-- MAIN CONTENT -->
-  <main id="content">
+  <!-- Main content -->
+  <main id="content-wrapper">
+
+    <!-- About Section -->
     <section id="about">
       <h2>About</h2>
       <p>Azure Data Engineer with 3+ years of experience designing and optimizing enterprise-scale Lakehouse architectures on Microsoft Azure. Expertise in Azure Databricks, PySpark, Delta Lake, and Azure Data Factory. Improved ETL runtime by 20% and reduced compute cost by 15% through Spark performance tuning and partition optimization. Experienced in healthcare analytics, high-volume partitioned data processing (~5,000 partitions per table), AI-driven automation, and Agile leadership.</p>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills">
       <h2>Technical Skills</h2>
       <ul>
@@ -55,6 +60,7 @@
       </ul>
     </section>
 
+    <!-- Experience Section -->
     <section id="experience">
       <h2>Professional Experience</h2>
       <h3>Infinite Computer Solutions – Hyderabad, India</h3>
@@ -70,16 +76,18 @@
       </ul>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects">
       <h2>Projects</h2>
       <ul>
         <li><strong>AI-Driven Jira Ticket Automation Platform:</strong> Developed Databricks-based automation integrating Jira REST API and OpenAI API. Reduced manual ticket triage effort by ~20%.</li>
-        <li><strong>High-Volume Partitioned Data Processing Framework:</strong> Designed Spark ingestion system processing ~5,000 partitioned text files per table with dynamic repartition logic.</li>
-        <li><strong>SQL Post-Processing Modernization:</strong> Converted legacy SQL scripts into scalable PySpark workflows preserving 5,000-partition structure.</li>
-        <li><strong>Chronic Condition Healthcare Reporting Framework:</strong> Developed reusable PySpark framework for chronic condition data validation and Gold-layer Delta dataset generation.</li>
+        <li><strong>High-Volume Partitioned Data Processing Framework:</strong> Designed Spark ingestion system processing ~5,000 partitioned text files per table. Validated partition count and data size post-write to prevent downstream failures.</li>
+        <li><strong>SQL Post-Processing Modernization:</strong> Converted legacy SQL post-processing scripts into scalable PySpark workflows. Preserved 5,000-partition structure for dependent Spark jobs.</li>
+        <li><strong>Chronic Condition Healthcare Reporting Framework:</strong> Developed reusable PySpark framework for chronic condition data validation and automated Gold-layer Delta dataset generation.</li>
       </ul>
     </section>
 
+    <!-- Achievements Section -->
     <section id="achievements">
       <h2>Achievements</h2>
       <ul>
@@ -89,6 +97,7 @@
       </ul>
     </section>
 
+    <!-- Education Section -->
     <section id="education">
       <h2>Education</h2>
       <ul>
@@ -97,6 +106,7 @@
       </ul>
     </section>
 
+    <!-- Certifications Section -->
     <section id="certifications">
       <h2>Certifications</h2>
       <ul>
@@ -104,6 +114,7 @@
       </ul>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact">
       <h2>Contact</h2>
       <p>Phone: +91-6281646106</p>
@@ -112,18 +123,19 @@
       <p>Location: Hyderabad, India</p>
     </section>
 
+    <!-- Resume Section -->
     <section id="resume">
       <h2>Resume</h2>
       <p>“Great code isn’t just written — it’s engineered with empathy, tested with discipline, and deployed with purpose.”</p>
       <p>View my complete experience, skills, and project work in detail.</p>
       <button id="downloadResumeBtn">Download Resume</button>
     </section>
+
   </main>
 
-  <!-- BACK TO TOP -->
-  <button id="backToTop" aria-label="Back to top">&#8679;</button>
+  <!-- Back to Top Button -->
+  <button id="backToTop">&#8679;</button>
 
-  <!-- HTML2PDF -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
