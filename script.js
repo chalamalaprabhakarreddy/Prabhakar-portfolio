@@ -1,34 +1,27 @@
-// Hamburger menu toggle for mobile
-const hamburger = document.getElementById('hamburger');
-const sidebar = document.getElementById('sidebar');
-
-hamburger.addEventListener('click', () => {
-  sidebar.classList.toggle('active');
-  
-  // Update aria-expanded attribute for accessibility
-  const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
-  hamburger.setAttribute('aria-expanded', !expanded);
+// Dark Mode Toggle
+const toggle = document.getElementById("themeToggle");
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  toggle.textContent =
+    document.body.classList.contains("dark") ? "☀️" : "🌙";
 });
 
-// Close sidebar when clicking outside on mobile
-document.addEventListener('click', (e) => {
-  if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-    sidebar.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', false);
-  }
+// Mobile Menu
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
 });
 
-// Scroll to top button functionality
-const scrollTopBtn = document.getElementById('scrollTopBtn');
+// Scroll Animation
+const faders = document.querySelectorAll(".fade-in");
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    scrollTopBtn.style.display = 'block';
-  } else {
-    scrollTopBtn.style.display = 'none';
-  }
-});
-
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+window.addEventListener("scroll", () => {
+  faders.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100){
+      el.classList.add("show");
+    }
+  });
 });
