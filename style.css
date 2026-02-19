@@ -1,26 +1,23 @@
 /* RESET */
-* {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif; scroll-behavior:smooth;}
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif; scroll-behavior:smooth;}
 
-/* HERO */
+/* HERO SECTION */
 .hero{
 height:100vh;
 background:url('background1.jpg') no-repeat center center/cover;
 display:flex; justify-content:center; align-items:center;
-color:white; position:relative;
-text-align:center;
+color:white; position:relative; text-align:center;
 }
 .hero::after{
 content:'';
-position:absolute;
-top:0; left:0;
-width:100%; height:100%;
+position:absolute; top:0; left:0; width:100%; height:100%;
 background:rgba(0,0,0,0.5);
 }
 .hero-content{position:relative; z-index:2;}
 .hero h1{font-size:3rem; letter-spacing:2px;}
 .hero h2{margin-top:10px; font-weight:300;}
 
-/* HAMBURGER */
+/* HAMBURGER MENU */
 #menuBtn{
 position:fixed; top:20px; right:20px; font-size:28px; color:white; cursor:pointer; z-index:1001;
 }
@@ -28,8 +25,7 @@ position:fixed; top:20px; right:20px; font-size:28px; color:white; cursor:pointe
 /* SIDEBAR */
 #sidebar{
 position:fixed; top:0; right:-300px; width:280px; height:100%;
-background:#0f172a; color:white; padding:30px 20px;
-transition:0.4s; overflow-y:auto; z-index:1000;
+background:#0f172a; color:white; padding:30px 20px; transition:0.4s; overflow-y:auto; z-index:1000;
 }
 #sidebar.active{right:0;}
 #sidebar img{width:120px; height:120px; border-radius:50%; display:block; margin:auto;}
