@@ -6,15 +6,15 @@ menuBtn.addEventListener('click', () => {
   sidebar.classList.toggle('active');
 });
 
-// BACK TO TOP
+// BACK TO TOP BUTTON
 const backToTop = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
   if(window.scrollY > 300) backToTop.style.display='block';
   else backToTop.style.display='none';
 });
-backToTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-// DOWNLOAD ATS RESUME
+// DOWNLOAD ATS-FRIENDLY RESUME
 const downloadBtn = document.getElementById('downloadResumeBtn');
 downloadBtn.addEventListener('click', () => {
   const resumeText = `
