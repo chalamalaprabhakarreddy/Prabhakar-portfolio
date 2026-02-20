@@ -4,69 +4,94 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prabhakar Reddy | Azure Data Engineer</title>
+
 <style>
+:root {
+    --primary: #0f172a;
+    --accent: #2563eb;
+    --light-bg: #f3f4f6;
+    --card-bg: #ffffff;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: "Segoe UI", sans-serif;
 }
 
 body {
-    display: flex;
-    background: #f4f6f9;
+    background: var(--light-bg);
+    scroll-behavior: smooth;
 }
 
-/* HERO SECTION */
+/* ================= HERO ================= */
 .hero {
     height: 100vh;
-    width: 100%;
-    background: url('background1.jpg') no-repeat center center/cover;
+    background: url("background1.jpg") center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
     position: relative;
+    color: white;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    letter-spacing: 2px;
-}
-
-.hero h3 {
-    margin-top: 10px;
-    font-weight: 400;
-}
-
-/* OVERLAY */
 .hero::before {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    top: 0;
-    left: 0;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
-/* SIDEBAR */
-.sidebar {
-    width: 280px;
-    background: #111;
-    color: white;
-    padding: 30px 20px;
+.hero h1 {
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+/* ================= FLOAT MENU BUTTON ================= */
+.menu-btn {
     position: fixed;
-    height: 100%;
-    right: 0;
+    top: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    position: fixed;
     top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100%;
+    background: var(--card-bg);
+    padding: 40px 25px;
     transition: 0.3s;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+}
+
+.sidebar.active {
+    right: 0;
 }
 
 .sidebar img {
@@ -80,164 +105,205 @@ body {
 .sidebar h2 {
     text-align: center;
     margin: 15px 0;
+    color: var(--primary);
 }
 
 .sidebar a {
     display: block;
-    color: white;
+    padding: 12px;
+    margin: 8px 0;
     text-decoration: none;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
+    color: var(--primary);
+    border-radius: 8px;
 }
 
 .sidebar a:hover {
-    background: #0078D4;
-}
-
-/* HAMBURGER */
-.menu-btn {
-    position: fixed;
-    right: 20px;
-    top: 20px;
-    font-size: 30px;
-    cursor: pointer;
-    display: none;
-    z-index: 1000;
+    background: var(--accent);
     color: white;
 }
 
-/* CONTENT */
-.content {
-    margin-right: 300px;
-    padding: 50px;
-    width: 100%;
-}
-
+/* ================= SECTION ================= */
 .section {
-    margin-bottom: 60px;
+    padding: 70px 20px;
+    max-width: 1100px;
+    margin: auto;
 }
 
 .section h2 {
-    margin-bottom: 20px;
-    color: #0078D4;
+    font-size: 2.3rem;
+    margin-bottom: 30px;
+    color: var(--primary);
 }
 
-.download-btn {
-    padding: 12px 25px;
-    background: #0078D4;
+/* ================= CARDS ================= */
+.card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+}
+
+/* ================= METRIC GRID ================= */
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.metric {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.metric h3 {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+/* ================= SKILL CHIPS ================= */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.chip {
+    background: #e5e7eb;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* ================= PROJECT TAG ================= */
+.tag {
+    display: inline-block;
+    background: var(--primary);
     color: white;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin: 5px 5px 0 0;
+}
+
+/* ================= BUTTON ================= */
+.btn {
+    background: var(--accent);
+    color: white;
+    padding: 12px 25px;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
 }
 
-.quote {
-    margin-top: 20px;
-    font-style: italic;
-    color: #555;
-}
-
-/* BACK TO TOP */
+/* ================= TOP BUTTON ================= */
 #topBtn {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    padding: 10px 15px;
-    background: black;
+    background: var(--primary);
     color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: none;
     border: none;
     cursor: pointer;
-    display: none;
 }
 
-/* MOBILE */
-@media(max-width: 768px) {
+/* ================= DESKTOP SIDEBAR ================= */
+@media(min-width: 992px) {
     .sidebar {
-        right: -300px;
-    }
-    .sidebar.active {
         right: 0;
     }
     .menu-btn {
-        display: block;
-    }
-    .content {
-        margin-right: 0;
-        padding: 20px;
+        display: none;
     }
 }
 </style>
 </head>
+
 <body>
 
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
 <div class="sidebar" id="sidebar">
-    <img src="Prabhakar.jpg" alt="Prabhakar">
+    <img src="Prabhakar.jpg">
     <h2>Prabhakar Reddy</h2>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#certification">Certification</a>
+    <a href="#projects">Projects</a>
     <a href="#resume">Resume</a>
 </div>
-
-<div class="content">
 
 <section class="hero">
     <div class="hero-content">
         <h1>PRABHAKAR REDDY CHALAMALA</h1>
-        <h3>Azure Data Engineer | Lakehouse Architect</h3>
+        <p>Azure Data Engineer | Azure Databricks | PySpark | Delta Lake | ADF</p>
     </div>
 </section>
 
 <section class="section" id="about">
-    <h2>About</h2>
-    <p>Azure Data Engineer with 3+ years experience designing enterprise Lakehouse architectures using Azure Databricks, Delta Lake and ADF. Delivered 20% runtime improvement and 15% cost reduction through Spark optimization and partition engineering.</p>
+    <h2>About Me</h2>
+    <div class="card">
+        Azure Data Engineer with 3+ years designing enterprise-scale Lakehouse architectures. Improved ETL runtime by 20% and reduced compute cost by 15% through Spark performance tuning and partition optimization.
+    </div>
+
+    <div class="metrics">
+        <div class="metric"><h3>3+</h3>Years Experience</div>
+        <div class="metric"><h3>20%</h3>ETL Boost</div>
+        <div class="metric"><h3>15%</h3>Cost Reduction</div>
+        <div class="metric"><h3>5000+</h3>Partitions</div>
+    </div>
 </section>
 
 <section class="section" id="skills">
     <h2>Core Technical Skills</h2>
-    <ul>
-        <li>Python, SQL, PySpark</li>
-        <li>Azure Databricks, Delta Lake, ADLS Gen2</li>
-        <li>Azure Data Factory</li>
-        <li>Medallion Architecture</li>
-        <li>Performance Optimization (Z-ORDER, VACUUM)</li>
-    </ul>
+    <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">SQL</span>
+        <span class="chip">PySpark</span>
+        <span class="chip">Azure Databricks</span>
+        <span class="chip">Delta Lake</span>
+        <span class="chip">ADF</span>
+        <span class="chip">Medallion Architecture</span>
+        <span class="chip">Z-ORDER</span>
+        <span class="chip">VACUUM</span>
+    </div>
 </section>
 
-<section class="section" id="experience">
-    <h2>Professional Experience</h2>
-    <h3>Infinite Computer Solutions (Oct 2022 – Present)</h3>
-    <ul>
-        <li>Designed scalable Lakehouse pipelines (Bronze-Silver-Gold).</li>
-        <li>Optimized Spark workloads improving runtime by 20%.</li>
-        <li>Built ingestion framework handling ~5,000 partitions.</li>
-        <li>Implemented 60-day Delta retention governance.</li>
-    </ul>
-</section>
+<section class="section" id="projects">
+    <h2>Key Projects</h2>
 
-<section class="section" id="certification">
-    <h2>Certification</h2>
-    <p>Azure Data Engineer Associate (Planned / In Progress)</p>
+    <div class="card">
+        <h3>AI-Driven Jira Ticket Automation</h3>
+        <p>Integrated Jira REST API with OpenAI using Databricks workflows reducing manual effort by ~20%.</p>
+        <span class="tag">Azure Databricks</span>
+        <span class="tag">OpenAI API</span>
+        <span class="tag">Python</span>
+    </div>
+
+    <div class="card">
+        <h3>High-Volume Partition Processing</h3>
+        <p>Designed ingestion framework handling ~5,000 partitions per table with optimized repartition logic.</p>
+        <span class="tag">PySpark</span>
+        <span class="tag">Delta Lake</span>
+    </div>
 </section>
 
 <section class="section" id="resume">
     <h2>Resume</h2>
-    <button class="download-btn" onclick="downloadResume()">Download Resume</button>
-
-    <p class="quote">
-        “Great code is not just written — it’s engineered with empathy, tested with discipline, and deployed with purpose.”
+    <button class="btn" onclick="downloadResume()">Download Resume</button>
+    <p style="margin-top:20px;font-style:italic;">
+        Great code is not just written — it’s engineered with empathy, tested with discipline, and deployed with purpose.
     </p>
-    <p>View my complete experience, skills, and project work in detail by clicking the download button above.</p>
 </section>
 
-</div>
-
-<button onclick="topFunction()" id="topBtn">↑ Top</button>
+<button onclick="topFunction()" id="topBtn">↑</button>
 
 <script>
 function toggleMenu() {
@@ -250,37 +316,16 @@ window.onscroll = function() {
 };
 
 function topFunction() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function downloadResume() {
-
-const resumeContent = `
-PRABHAKAR REDDY CHALAMALA
-Azure Data Engineer | Hyderabad, India
-Phone: +91-6281646106
-Email: reddyprabhakar303@gmail.com
-LinkedIn: linkedin.com/in/prabhakar-reddy-chalamala-34923a232
-
-PROFESSIONAL SUMMARY
-Azure Data Engineer with 3+ years of experience in Lakehouse architecture,
-Spark optimization, partition strategy and enterprise ETL.
-
-EXPERIENCE
-Infinite Computer Solutions (Oct 2022 – Present)
-- Improved ETL runtime by 20%
-- Reduced compute cost by 15%
-- Managed 5000+ partitions ingestion
-
-SKILLS
-Python, SQL, PySpark, Azure Databricks, Delta Lake, ADF
-`;
-
-const blob = new Blob([resumeContent], { type: 'text/plain' });
-const link = document.createElement('a');
-link.href = URL.createObjectURL(blob);
-link.download = "Prabhakar_Reddy_Resume.txt";
-link.click();
+function downloadResume(){
+    const content = "Prabhakar Reddy Chalamala\nAzure Data Engineer\nHyderabad, India\n...";
+    const blob = new Blob([content], {type:"text/plain"});
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "Prabhakar_Reddy_Resume.txt";
+    link.click();
 }
 </script>
 
